@@ -3,8 +3,15 @@ package com.example.biyuyu
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
 import com.example.biyuyu.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -18,33 +25,24 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
+        (activity as AppCompatActivity).supportActionBar
+
+        binding.userInfoHomeFragmentImage.setOnClickListener {
+            goUserInfoFragment()
+        }
+
+        binding.logoutHomeFragmentText.setOnClickListener {
+            goInfoHomeFragment()
+        }
+
         return binding.root
     }
 
-    //Enable options menu in this fragment
-    override fun onCreate(savedInstanceState: Bundle?) {
-        setHasOptionsMenu(true)
-        super.onCreate(savedInstanceState)
+    private fun goUserInfoFragment() {
+        Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment_to_userInfoFragment)
     }
 
-    //Inflate the menu
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.bar_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    //Handle item clicks of menu
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //Get item id to handle item clicks
-        val id = item!!.itemId
-        //Handle item clicks
-        if (id == R.id.user_info) {
-            //Action here
-            Toast.makeText(context, "Información de usuario", Toast.LENGTH_SHORT).show()
-        }
-        if (id == R.id.logout) {
-            Toast.makeText(context, "Ha cerrado sesión", Toast.LENGTH_SHORT).show()
-        }
-        return super.onOptionsItemSelected(item)
+    private fun goInfoHomeFragment() {
+        Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment_to_loginFragment)
     }
 }
