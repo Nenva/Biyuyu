@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.biyuyu.LoginFragment"
+        android:name="com.example.biyuyu.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.biyuyu.RegisterFragment"
+        android:name="com.example.biyuyu.ui.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.biyuyu.HomeFragment"
+        android:name="com.example.biyuyu.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/userInfoFragment"
-        android:name="com.example.biyuyu.UserInfoFragment"
+        android:name="com.example.biyuyu.ui.UserInfoFragment"
         android:label="fragment_user_info"
         tools:layout="@layout/fragment_user_info" >
         <action
@@ -80,7 +80,7 @@
     </fragment>
     <fragment
         android:id="@+id/createReportFragment"
-        android:name="com.example.biyuyu.CreateReportFragment"
+        android:name="com.example.biyuyu.ui.CreateReportFragment"
         android:label="fragment_create_report"
         tools:layout="@layout/fragment_create_report" >
         <action
@@ -101,7 +101,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateUserFragment"
-        android:name="com.example.biyuyu.UpdateUserFragment"
+        android:name="com.example.biyuyu.ui.UpdateUserFragment"
         android:label="fragment_update_user"
         tools:layout="@layout/fragment_update_user" >
         <action

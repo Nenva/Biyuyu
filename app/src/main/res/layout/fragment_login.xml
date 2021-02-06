@@ -4,64 +4,131 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
-        tools:context=".LoginFragment">
+        tools:context=".ui.LoginFragment">
 
-        <EditText
-            android:id="@+id/login_insertEmail"
-            android:layout_width="0dp"
+        <com.example.biyuyu.utils.MSPTextViewBold
+            android:id="@+id/app_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="280dp"
-            android:ems="10"
-            android:fontFamily="@font/nunito_sans"
-            android:hint="Correo electrónico"
-            android:inputType="textEmailAddress"
+            android:layout_marginTop="124dp"
+            android:text="@string/app_name"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/splash_title_text_size"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/login_insertPassword"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_titleInsertEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:fontFamily="@font/nunito_sans"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="69dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/editText_hint_email"
+            android:textColorHint="@color/text_color"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/login_insertEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/app_title">
 
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="0dp"
+            <com.example.biyuyu.utils.MSPEditText
+                android:id="@+id/login_insertEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans"
+                android:inputType="text"
+                android:padding="@dimen/editText_padding"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/editText_textSize"
+                tools:text="abc@gmail.com" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_titleInsertPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/editText_hint_password"
+            android:textColorHint="@color/text_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_titleInsertEmail">
+
+            <com.example.biyuyu.utils.MSPEditText
+                android:id="@+id/login_insertPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:padding="@dimen/editText_padding"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/editText_textSize"
+                tools:text="123456" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.example.biyuyu.utils.MSPTextView
+            android:id="@+id/text_forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/nunito_sans"
-            android:text="Ingresar"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/clickable_text_view_padding"
+            android:text="@string/lbl_forgot_password"
+            android:textSize="@dimen/forgot_password_textSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_titleInsertPassword" />
+
+        <com.example.biyuyu.utils.MSPButton
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/nunito_sans"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingTop="@dimen/button_padding"
+            android:paddingBottom="@dimen/button_padding"
+            android:text="@string/button_login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/button_textSize"
             app:layout_constraintBottom_toTopOf="@+id/registerUser_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
+        <com.example.biyuyu.utils.MSPTextView
             android:id="@+id/registerUser_text"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="36dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/nunito_sans"
-            android:gravity="center"
-            android:text="¿Quieres crear una cuenta? Ingresa aquí"
+            android:padding="@dimen/clickable_text_view_padding"
+            android:text="@string/dont_have_account"
+            android:textAlignment="viewStart"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/lbl_text_view_textSize"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

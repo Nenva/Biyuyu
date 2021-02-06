@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "304460293924",
+    "project_id": "biyuyu-6bf04",
+    "storage_bucket": "biyuyu-6bf04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:304460293924:android:01d3334c39f2ad058bb5b1",
+        "android_client_info": {
+          "package_name": "com.example.biyuyu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "304460293924-6nvuakhg7r7e05ra5na1q6t85thsqbsq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.biyuyu",
+            "certificate_hash": "66b502116a3909e6a9ed851876d72a9ff55ff15d"
+          }
+        },
+        {
+          "client_id": "304460293924-1rj7bsulk6kgaeoqtm6uekcqd1vdo0s1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-X0q3m4DjrmzAk_PgY1c-TBOkFHxxbBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "304460293924-1rj7bsulk6kgaeoqtm6uekcqd1vdo0s1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

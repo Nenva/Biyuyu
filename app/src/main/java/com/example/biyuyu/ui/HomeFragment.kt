@@ -1,17 +1,12 @@
-package com.example.biyuyu
+package com.example.biyuyu.ui
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.AppBarConfiguration
+import com.example.biyuyu.R
 import com.example.biyuyu.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -25,24 +20,30 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
+        //Set fullscreen in the fragment
+        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+
+        //Set action bar
         (activity as AppCompatActivity).supportActionBar
 
         binding.userInfoHomeFragmentImage.setOnClickListener {
-            goUserInfoFragment()
+            goUserInfoFragmentFromHomeFragment()
         }
 
         binding.logoutHomeFragmentText.setOnClickListener {
-            goInfoHomeFragment()
+            goInfoHomeFragmentFromHomeFragment()
         }
 
         return binding.root
     }
 
-    private fun goUserInfoFragment() {
+    // Launch UserInfroFragment from HomeFragment
+    private fun goUserInfoFragmentFromHomeFragment() {
         Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment_to_userInfoFragment)
     }
 
-    private fun goInfoHomeFragment() {
+    // Launch InfoHomeFragment from HomeFragment
+    private fun goInfoHomeFragmentFromHomeFragment() {
         Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment_to_loginFragment)
     }
 }
