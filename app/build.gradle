@@ -56,4 +56,8 @@ dependencies {
     // Firebase setup
     implementation platform('com.google.firebase:firebase-bom:26.4.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    // Firebase authentication
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    // FancyToast
+    implementation 'com.github.Shashank02051997:FancyToast-Android:0.1.8'
 }

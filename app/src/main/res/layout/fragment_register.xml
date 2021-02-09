@@ -46,8 +46,10 @@
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appBarLayout">
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            app:layout_constraintVertical_bias="1.0">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -176,7 +178,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito_sans"
-                        android:inputType="phone"
+                        android:inputType="text"
                         android:padding="@dimen/editText_padding"
                         android:textColor="@color/text_color"
                         android:textSize="@dimen/editText_textSize" />
@@ -246,8 +248,8 @@
                     android:fontFamily="@font/nunito_sans"
                     android:foreground="?attr/selectableItemBackground"
                     android:gravity="center"
-                    android:paddingEnd="@dimen/button_padding"
                     android:paddingStart="@dimen/button_padding"
+                    android:paddingEnd="@dimen/button_padding"
                     android:paddingBottom="@dimen/button_padding"
                     android:text="@string/button_lbl_register"
                     android:textAllCaps="false"
