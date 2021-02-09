@@ -39,4 +39,5 @@
     <string name="password_must_be_equal_confirmPassword">Ambas contraseñas deben coincidir</string>
     <string name="dates_inserted_successfully">Tu usuario ha sido creado</string>
     <string name="user_register_failed">El registro de usuario ha fallado</string>
+    <string name="please_wait">Por favor espere&#8230;</string>
 </resources>

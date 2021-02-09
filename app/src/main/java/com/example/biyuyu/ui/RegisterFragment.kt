@@ -1,5 +1,6 @@
 package com.example.biyuyu.ui
 
+import android.app.Dialog
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
@@ -18,12 +19,14 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.shashank.sony.fancytoastlib.FancyToast
+import kotlinx.android.synthetic.main.dialog_progress.*
 import kotlinx.android.synthetic.main.fragment_register.*
 
 
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
+    private lateinit var myProgressDialog: Dialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -116,12 +119,17 @@ class RegisterFragment : Fragment() {
     private fun registerUser() {
         // Check with validate functions if the entries are valid or not
         if (validateRegisterDetails()) {
+
+            showProgressDialog(resources.getString(R.string.please_wait))
+
             val email: String = register_insertEmail.text.toString().trim { it <= ' ' }
             val password: String = register_insertPassword.text.toString().trim { it <= ' ' }
 
             // Create an instance and create a register a user with email and password
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(OnCompleteListener<AuthResult> { task ->
+                    // Hide progress dialog
+                    hideProgressDialog()
                     //If the registration is successfully done
                     if (task.isSuccessful) {
                         //Firebase registered user
@@ -146,5 +154,19 @@ class RegisterFragment : Fragment() {
     // Launch LoginFragment from RegisterFragment
     private fun goLoginFragmentFromRegisterFragment() {
         Navigation.findNavController(binding.root).navigate(R.id.action_registerFragment_to_loginFragment)
+    }
+
+    // Show progress dialog
+    private fun showProgressDialog(text: String) {
+        myProgressDialog = Dialog(requireContext())
+        myProgressDialog.setContentView(R.layout.dialog_progress)
+        myProgressDialog.text_progress_text.text = text
+        myProgressDialog.setCancelable(false)
+        myProgressDialog.setCanceledOnTouchOutside(false)
+        myProgressDialog.show()
+    }
+
+    private fun hideProgressDialog() {
+        myProgressDialog.dismiss()
     }
 }
