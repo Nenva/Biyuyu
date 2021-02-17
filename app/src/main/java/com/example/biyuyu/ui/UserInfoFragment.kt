@@ -24,7 +24,7 @@ class UserInfoFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_info, container, false)
 
         //Set fullscreen in the fragment
-        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        //requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
         //Set action bar
         (activity as AppCompatActivity).supportActionBar
@@ -37,7 +37,16 @@ class UserInfoFragment : Fragment() {
             goLoginFragmentFromUserInfoFragment()
         }
 
+        binding.fabUpdateUser.setOnClickListener {
+            goUpdateUserFragmentFromUserInfoFragment()
+        }
+
         return binding.root
+    }
+
+    // Launch UpdateUserFragment from UserInfoFragment
+    private fun goUpdateUserFragmentFromUserInfoFragment() {
+        Navigation.findNavController(binding.root).navigate(R.id.action_userInfoFragment_to_updateUserFragment)
     }
 
     // Launch HomeFragment from UserInfoFragment

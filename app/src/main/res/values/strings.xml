@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Biyuyu</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -10,6 +10,7 @@
     <string name="editText_hint_email">Correo electrónico</string>
     <string name="editText_hint_password">Contraseña</string>
     <string name="lbl_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="forgot_password_description">Ingresa tu correo y te enviaremos una contraseña nueva</string>
     <string name="button_login">Ingresar</string>
     <string name="register"><u>Registrate</u></string>
     <string name="dont_have_account">¿Quieres una cuenta? Click aquí</string>
@@ -40,4 +41,11 @@
     <string name="dates_inserted_successfully">Tu usuario ha sido creado</string>
     <string name="user_register_failed">El registro de usuario ha fallado</string>
     <string name="please_wait">Por favor espere&#8230;</string>
+    <string name="update_user">Actualizar</string>
+    <string name="login_success">Has ingresado correctamente</string>
+    <string name="login_unsuccess">Lo sentimos, ha habido un error</string>
+    <string name="title_forgot_password">¿Olvidaste tu contraseña?</string>
+    <string name="reset_password">Restaurar contraseña</string>
+    <string name="text_backLogin">Volver al menu de ingreso</string>
+
 </resources>

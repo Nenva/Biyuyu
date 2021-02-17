@@ -11,6 +11,7 @@
         tools:context=".ui.UpdateUserFragment">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/updateUser_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,116 +63,228 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <EditText
-            android:id="@+id/updateUser_insertNames"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="92dp"
-            android:ems="10"
-            android:fontFamily="@font/nunito_sans"
-            android:hint="@string/nombres"
-            android:inputType="textPersonName"
+        <ScrollView
+            android:layout_width="402dp"
+            android:layout_height="540dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/updateUser_toolbar"
+            app:layout_constraintVertical_bias="1.0">
 
-        <EditText
-            android:id="@+id/updateUser_insertLastNames"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:fontFamily="@font/nunito_sans"
-            android:hint="@string/apellidos"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateUser_insertNames" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/updateUser_insertEmail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:fontFamily="@font/nunito_sans"
-            android:hint="@string/correo_electr_nico"
-            android:inputType="textEmailAddress"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateUser_insertLastNames" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/update_titleInsertNames"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/hint_names"
+                    android:textColorHint="@color/text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/updateUser_insertPhoneNumber"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:fontFamily="@font/nunito_sans"
-            android:hint="@string/tel_fono"
-            android:inputType="phone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateUser_insertEmail" />
+                    <com.example.biyuyu.utils.MSPEditText
+                        android:id="@+id/update_insertNames"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans"
+                        android:inputType="text"
+                        android:padding="@dimen/editText_padding"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/editText_textSize" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/updateUser_insertTown"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:fontFamily="@font/nunito_sans"
-            android:hint="@string/municipio"
-            android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateUser_insertPhoneNumber" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/update_titleInsertLastNames"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/hint_lastNames"
+                    android:textColorHint="@color/text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/update_titleInsertNames">
 
-        <EditText
-            android:id="@+id/updateUser_insertPassword"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:fontFamily="@font/nunito_sans"
-            android:hint="@string/contrase_a"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateUser_insertTown" />
+                    <com.example.biyuyu.utils.MSPEditText
+                        android:id="@+id/update_insertLastNames"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans"
+                        android:inputType="text"
+                        android:padding="@dimen/editText_padding"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/editText_textSize" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/updateUser_confirmPassword"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ems="10"
-            android:fontFamily="@font/nunito_sans"
-            android:hint="@string/confirmar_contrase_a"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateUser_insertPassword" />
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/update_titleInsertEmail"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/hint_email"
+                    android:textColorHint="@color/text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/update_titleInsertLastNames">
 
-        <Button
-            android:id="@+id/button_updateUser"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
-            android:fontFamily="@font/nunito_sans"
-            android:text="@string/actualizar_usuario"
-            android:backgroundTint="@color/text_color"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+                    <com.example.biyuyu.utils.MSPEditText
+                        android:id="@+id/update_insertEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans"
+                        android:inputType="textEmailAddress"
+                        android:padding="@dimen/editText_padding"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/editText_textSize" />
+                </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/update_titleInsertPhoneNumber"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/hint_phone"
+                    android:textColorHint="@color/text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/update_titleInsertEmail">
+
+                    <com.example.biyuyu.utils.MSPEditText
+                        android:id="@+id/update_insertPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans"
+                        android:inputType="phone"
+                        android:padding="@dimen/editText_padding"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/editText_textSize" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/update_titleInsertTown"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/hint_town"
+                    android:textColorHint="@color/text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/update_titleInsertPhoneNumber">
+
+                    <com.example.biyuyu.utils.MSPEditText
+                        android:id="@+id/update_insertTown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans"
+                        android:inputType="text"
+                        android:padding="@dimen/editText_padding"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/editText_textSize" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/update_titleInsertPassword"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/hint_password"
+                    android:textColorHint="@color/text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/update_titleInsertTown">
+
+                    <com.example.biyuyu.utils.MSPEditText
+                        android:id="@+id/update_insertPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans"
+                        android:inputType="textPassword"
+                        android:padding="@dimen/editText_padding"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/editText_textSize" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/update_titleConfirmPassword"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="@string/hint_confirmPassword"
+                    android:textColorHint="@color/text_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/update_titleInsertPassword">
+
+                    <com.example.biyuyu.utils.MSPEditText
+                        android:id="@+id/update_confirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito_sans"
+                        android:inputType="textPassword"
+                        android:padding="@dimen/editText_padding"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/editText_textSize" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.example.biyuyu.utils.MSPButton
+                    android:id="@+id/button_updateUser"
+                    android:layout_width="372dp"
+                    android:layout_height="47dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/nunito_sans"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/button_padding"
+                    android:paddingEnd="@dimen/button_padding"
+                    android:paddingBottom="@dimen/button_padding"
+                    android:text="@string/update_user"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/button_textSize"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/update_titleConfirmPassword" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

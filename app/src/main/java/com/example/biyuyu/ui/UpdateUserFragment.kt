@@ -24,7 +24,7 @@ class UpdateUserFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_update_user, container, false)
 
         //Set fullscreen in the fragment
-        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        //requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
         //Set action bar
         (activity as AppCompatActivity).supportActionBar

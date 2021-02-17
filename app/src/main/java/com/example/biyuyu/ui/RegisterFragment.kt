@@ -14,6 +14,8 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import com.example.biyuyu.R
 import com.example.biyuyu.databinding.FragmentRegisterBinding
+import com.example.biyuyu.firestore.FirestoreClass
+import com.example.biyuyu.models.User
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -128,22 +130,40 @@ class RegisterFragment : Fragment() {
             // Create an instance and create a register a user with email and password
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(OnCompleteListener<AuthResult> { task ->
-                    // Hide progress dialog
-                    hideProgressDialog()
                     //If the registration is successfully done
                     if (task.isSuccessful) {
                         //Firebase registered user
                         val firebaseUser: FirebaseUser = task.result!!.user!!
-                        FancyToast.makeText(context, resources.getString(R.string.dates_inserted_successfully),
-                        FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
+                        val user = User(
+                                    firebaseUser.uid,
+                                    binding.registerInsertNames.text.toString().trim { it <= ' ' },
+                                    binding.registerInsertLastNames.text.toString().trim { it <= ' ' },
+                                    binding.registerInsertEmail.text.toString().trim { it <= ' ' },
+                                    binding.registerInsertPhoneNumber.text.toString().trim { it <= ' ' },
+                                    binding.registerInsertTown.text.toString().trim { it <= ' ' }
+                                )
+
+                        FirestoreClass().saveUserInFirestore(this, user)
+
+                        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                         goHomeFragmentFromRegisterFragment()
                     } else {
+                        hideProgressDialog()
                         //If the registering is not successful then show error message
                         FancyToast.makeText(context, resources.getString(R.string.user_register_failed),
                             FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
                     }
                 })
         }
+    }
+
+    fun userRegistrationSuccess() {
+
+        // Hide the progress dialog
+        hideProgressDialog()
+
+        FancyToast.makeText(context, resources.getString(R.string.dates_inserted_successfully),
+            FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
     }
 
     // Launch HomeFragment from RegisterFragment
@@ -166,7 +186,8 @@ class RegisterFragment : Fragment() {
         myProgressDialog.show()
     }
 
-    private fun hideProgressDialog() {
+    // Hide progress dialog
+    fun hideProgressDialog() {
         myProgressDialog.dismiss()
     }
 }

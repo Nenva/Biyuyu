@@ -7,10 +7,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.HomeFragment"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        tools:context=".ui.HomeFragment">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,19 +30,19 @@
                     android:background="@drawable/button_background"
                     android:minHeight="?attr/actionBarSize"
                     android:theme="?attr/actionBarTheme"
-                    app:titleTextColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:title="Lista de reportes" />
+                    app:title="Lista de reportes"
+                    app:titleTextColor="@color/white" />
 
                 <ImageView
                     android:id="@+id/userInfoHomeFragment_image"
-                    android:contentDescription="@string/icon"
                     android:layout_width="33dp"
                     android:layout_height="34dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="20dp"
+                    android:contentDescription="@string/icon"
                     android:src="@drawable/ic_user_info"
                     app:layout_constraintEnd_toStartOf="@+id/logoutHomeFragment_text"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -63,19 +64,32 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
+            android:id="@+id/text_home"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/nunito_sans"
             android:gravity="center"
-            android:text="@string/home_fragment"
-            android:textSize="@dimen/editText_textSize"
-            android:textColor="@color/text_color"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Home"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_createReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:clickable="true"
+            app:backgroundTint="@color/gray_blue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_add"
+            app:tint="@color/white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
