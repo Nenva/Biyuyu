@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.biyuyu.ui.HomeFragment"
+        android:name="com.example.biyuyu.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -57,14 +57,14 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
         <action
-            android:id="@+id/action_homeFragment_to_createReportFragment"
-            app:destination="@id/createReportFragment"
+            android:id="@+id/action_homeFragment_to_createRequestFragment"
+            app:destination="@id/createRequestFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/userInfoFragment"
-        android:name="com.example.biyuyu.ui.UserInfoFragment"
+        android:name="com.example.biyuyu.ui.userinfo.UserInfoFragment"
         android:label="fragment_user_info"
         tools:layout="@layout/fragment_user_info" >
         <action
@@ -84,22 +84,22 @@
             app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
-        android:id="@+id/createReportFragment"
-        android:name="com.example.biyuyu.ui.CreateReportFragment"
-        android:label="fragment_create_report"
-        tools:layout="@layout/fragment_create_report" >
+        android:id="@+id/createRequestFragment"
+        android:name="com.example.biyuyu.ui.CreateRequestFragment"
+        android:label="fragment_create_request"
+        tools:layout="@layout/fragment_create_request" >
         <action
-            android:id="@+id/action_createReportFragment_to_homeFragment"
+            android:id="@+id/action_createRequestFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
         <action
-            android:id="@+id/action_createReportFragment_to_loginFragment"
+            android:id="@+id/action_createRequestFragment_to_loginFragment"
             app:destination="@id/loginFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
         <action
-            android:id="@+id/action_createReportFragment_to_userInfoFragment"
+            android:id="@+id/action_createRequestFragment_to_userInfoFragment"
             app:destination="@id/userInfoFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />

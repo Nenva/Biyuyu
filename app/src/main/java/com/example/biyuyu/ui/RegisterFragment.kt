@@ -146,7 +146,7 @@ class RegisterFragment : Fragment() {
                         FirestoreClass().saveUserInFirestore(this, user)
 
                         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                        goHomeFragmentFromRegisterFragment()
+                        goLoginFragmentFromRegisterFragment()
                     } else {
                         hideProgressDialog()
                         //If the registering is not successful then show error message

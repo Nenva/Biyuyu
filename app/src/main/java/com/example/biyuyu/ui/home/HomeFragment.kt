@@ -1,12 +1,13 @@
-package com.example.biyuyu.ui
+package com.example.biyuyu.ui.home
 
 import android.content.Context
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.biyuyu.R
 import com.example.biyuyu.databinding.FragmentHomeBinding
@@ -46,15 +47,15 @@ class HomeFragment : Fragment() {
         }
 
         binding.fabCreateReport.setOnClickListener {
-            goCreateReportFragmentFromHomeFragment()
+            goCreateRequestFragmentFromHomeFragment()
         }
 
         return binding.root
     }
 
     // Launch CreateReportFragment from HomeFragment
-    private fun goCreateReportFragmentFromHomeFragment() {
-        Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment_to_createReportFragment)
+    private fun goCreateRequestFragmentFromHomeFragment() {
+        Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment_to_createRequestFragment)
     }
 
     // Launch UserInfoFragment from HomeFragment

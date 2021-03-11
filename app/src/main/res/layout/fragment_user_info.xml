@@ -7,10 +7,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        tools:context=".ui.UserInfoFragment">
+        tools:context=".ui.userinfo.UserInfoFragment">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,22 +26,22 @@
                     android:id="@+id/userInfoFragment_toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_background"
+                    android:background="@drawable/custom_background"
                     android:minHeight="?attr/actionBarSize"
                     android:theme="?attr/actionBarTheme"
-                    app:titleTextColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:title="Información de usuario" />
+                    app:title="Información de usuario"
+                    app:titleTextColor="@color/white" />
 
                 <ImageView
                     android:id="@+id/homeFromUserInfoFragment_image"
-                    android:contentDescription="@string/icon"
                     android:layout_width="33dp"
                     android:layout_height="34dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="20dp"
+                    android:contentDescription="@string/icon"
                     android:src="@drawable/ic_home"
                     app:layout_constraintEnd_toStartOf="@+id/logoutUserInfoFragment_text"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -61,6 +61,23 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:id="@+id/text_userInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="78dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/nunito_sans"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/text_userNames"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout3"
+            app:layout_constraintVertical_bias="0.216" />
 
         <TextView
             android:id="@+id/text_userNames"

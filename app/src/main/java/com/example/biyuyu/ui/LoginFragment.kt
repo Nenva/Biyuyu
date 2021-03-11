@@ -88,8 +88,8 @@ import kotlinx.android.synthetic.main.fragment_register.*
                      if (task.isSuccessful) {
                          FirestoreClass().getUserDetails(this@LoginFragment)
                          //goHomeFragmentFromLoginFragment()
-                         //FancyToast.makeText(context, resources.getString(R.string.login_success),
-                         //FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
+                         FancyToast.makeText(context, resources.getString(R.string.login_success),
+                         FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
                      } else {
                          hideProgressDialog()
                          FancyToast.makeText(context, resources.getString(R.string.login_unsuccess),

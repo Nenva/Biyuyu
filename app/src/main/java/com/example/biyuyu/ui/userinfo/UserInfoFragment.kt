@@ -1,13 +1,14 @@
-package com.example.biyuyu.ui
+package com.example.biyuyu.ui.userinfo
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.biyuyu.R
 import com.example.biyuyu.databinding.FragmentUserInfoBinding
@@ -15,14 +16,20 @@ import com.example.biyuyu.databinding.FragmentUserInfoBinding
 class UserInfoFragment : Fragment() {
 
     private lateinit var binding: FragmentUserInfoBinding
+    private lateinit var userInfoViewModel: UserInfoViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        userInfoViewModel = ViewModelProviders.of(this).get(UserInfoViewModel::class.java)
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_info, container, false)
 
+        userInfoViewModel.text.observe(viewLifecycleOwner, Observer {
+            binding.textUserInfo.text = it
+        })
         //Set fullscreen in the fragment
         //requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 

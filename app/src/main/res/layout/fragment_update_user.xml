@@ -7,7 +7,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
         tools:context=".ui.UpdateUserFragment">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -27,7 +26,7 @@
                     android:id="@+id/updateUserFragment_toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_background"
+                    android:background="@drawable/custom_background"
                     android:minHeight="?attr/actionBarSize"
                     android:theme="?attr/actionBarTheme"
                     app:titleTextColor="@color/white"
@@ -64,15 +63,15 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <ScrollView
-            android:layout_width="402dp"
-            android:layout_height="540dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="410dp"
+            android:layout_height="668dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/updateUser_toolbar"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintVertical_bias="0.0">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

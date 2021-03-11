@@ -16,6 +16,8 @@ class FirestoreClass {
 
     private val myFirestore = FirebaseFirestore.getInstance()
 
+
+
     fun saveUserInFirestore(registerFragment: RegisterFragment, userInfo: User) {
 
         // User is a collection name
@@ -61,7 +63,7 @@ class FirestoreClass {
             .addOnSuccessListener { document ->
                 Log.i(fragment.javaClass.simpleName, document.toString())
                 // Here we have received the document snapshot which is converted into the User data model object
-                val user = document.toObject(User::class.java)!!
+                val user = document.toObject(User::class.java)
                 val sharedPreferences =
                     fragment.activity?.getSharedPreferences(
                         Constants.BIYUYU_PREFERENCES,
@@ -72,7 +74,7 @@ class FirestoreClass {
                 if (editor != null) {
                     editor.putString(
                         Constants.LOGGED_IN_USERNAME,
-                        "${user.names} ${user.lastNames}"
+                        "${user?.names} ${user?.lastNames}"
                     )
                 }
                 if (editor != null) {
@@ -83,7 +85,9 @@ class FirestoreClass {
                 when (fragment) {
                     is LoginFragment -> {
                         // Call a function for transferring the result to it
-                        fragment.userLoggedInSuccess(user)
+                        if (user != null) {
+                            fragment.userLoggedInSuccess(user)
+                        }
                     }
                 }
             }
