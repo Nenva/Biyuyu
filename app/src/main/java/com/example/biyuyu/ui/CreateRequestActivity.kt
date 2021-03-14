@@ -3,6 +3,9 @@ package com.example.biyuyu.ui
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.biyuyu.R
@@ -25,6 +28,26 @@ class CreateRequestActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_create_request)
 
+        val customList = listOf("Taxi", "Pedido")
+        val adapter = ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, customList)
+        binding.spinnerRequestType.adapter = adapter
+
+        binding.spinnerRequestType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                FancyToast.makeText(this@CreateRequestActivity, "Has solicitado un ${parent?.getItemAtPosition(position).toString()}",
+                FancyToast.INFO, FancyToast.LENGTH_SHORT, false).show()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+        }
+
         //Set action bar
         setSupportActionBar(binding.createReportActivityToolbar)
 
@@ -43,6 +66,7 @@ class CreateRequestActivity : AppCompatActivity() {
     private fun saveRequestFirestore() {
         val title = binding.createRequestTitle.text.toString().trim { it <= ' ' }
         val description = binding.createRequestDescription.text.toString().trim { it <= ' ' }
+        val type = binding.spinnerRequestType.toString().trim { it <= ' ' }
         if (title.isEmpty() && description.isEmpty()) {
             FancyToast.makeText(
                 this, resources.getString(R.string.fill_all_fields), FancyToast.LENGTH_SHORT,
@@ -53,6 +77,7 @@ class CreateRequestActivity : AppCompatActivity() {
             val request: MutableMap<String, Any> = HashMap()
             request["title"] = title
             request["description"] = description
+            request["type"] = type
 
             database.collection(Constants.REQUESTS)
                 .add(request)
